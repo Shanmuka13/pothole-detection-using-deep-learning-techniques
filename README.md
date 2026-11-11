@@ -1,4 +1,4 @@
-# UrbanPulse AI — Pothole Detection
+# UrbanPulse AI — Pothole Detection Using deep Learning Techniques
 
 UrbanPulse AI is a Python project for collecting road-damage reports, detecting potholes in uploaded images or videos, and helping municipal staff review and track complaints on a map.
 
