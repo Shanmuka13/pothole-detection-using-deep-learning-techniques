@@ -1,0 +1,31 @@
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+.env
+app/.active_tokens.json
+
+# Project Specific
+temp/
+tests/temp/
+*.log
+*.db
+*.sqlite
+*.sqlite3
+test_map.html
+dispatch_map.html
+
+# OS Generated
+.DS_Store
+Thumbs.db
+
+# Deep Learning / YOLO Models (If you decide to download them)
+*.pt
+*.onnx
