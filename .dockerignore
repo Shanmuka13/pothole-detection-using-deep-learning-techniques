@@ -1,0 +1,17 @@
+.git
+.env
+.env.*
+!.env.example
+.venv
+venv
+env
+__pycache__
+*.py[cod]
+.pytest_cache
+*.log
+*.db
+*.sqlite
+*.sqlite3
+app/.active_tokens.json
+temp
+tests/temp

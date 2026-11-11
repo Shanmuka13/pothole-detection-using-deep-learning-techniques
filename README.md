@@ -1,3 +1,8 @@
+---
+sdk: docker
+app_port: 7860
+---
+
 # UrbanPulse AI — Pothole Detection
 
 UrbanPulse AI is a Python project for collecting road-damage reports, detecting potholes in uploaded images or videos, and helping municipal staff review and track complaints on a map.
@@ -41,6 +46,25 @@ streamlit run frontend/app.py --server.port 8501
 Open <http://127.0.0.1:8501>. The API documentation is at <http://127.0.0.1:8001/docs>.
 
 Copy `.env.example` to `.env` for local settings. Leave `MONGO_URI` empty for the in-memory demo. To use contractor sign-in, set a private `DEMO_CONTRACTOR_PASSWORD`; the contractor demo account is seeded with its hash when the backend starts. Keep `.env` local and never commit it. Email OTP and authority notifications require valid SMTP settings; map, geocoding, and elevation features use internet services.
+
+## Deploy the full app with Docker
+
+The easiest single-service deployment is a Hugging Face Space using the **Docker** SDK. This runs Streamlit on the public port and starts FastAPI internally in the same container.
+
+1. Create a Space and select **Docker**.
+2. Clone this GitHub repository and add the Space as another remote:
+
+   ```bash
+   git clone https://github.com/Shanmuka13/pothole-detection-using-deep-learning-techniques.git
+   cd pothole-detection-using-deep-learning-techniques
+   git remote add space https://huggingface.co/spaces/YOUR_USERNAME/YOUR_SPACE
+   git push space main
+   ```
+
+3. In the Space settings, add secrets/variables. Set `DEMO_CONTRACTOR_PASSWORD` to enable contractor sign-in. Set SMTP values (`SMTP_USER`, `SMTP_PASSWORD`, and optionally `SMTP_HOST`, `SMTP_PORT`, `SMTP_FROM`) if authority email OTP is needed. Set `MONGO_URI` to a MongoDB connection string for persistent data; without it, demo data is temporary and resets when the container restarts.
+4. Wait for the Docker build to finish, then open the Space URL. The frontend calls the internal API at `http://127.0.0.1:8001`; only the Streamlit port is public.
+
+Never upload `.env` or paste secrets into GitHub. Public deployment is for demos only; review authentication and security before using real user data.
 
 ## Run tests
 
