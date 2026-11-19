@@ -7,7 +7,6 @@ app_port: 7860
 
 UrbanPulse AI is a Python project for collecting road-damage reports, detecting potholes in uploaded images or videos, and helping municipal staff review and track complaints on a map.
 
-**For the detailed architecture, module-by-module explanations, configuration, API routes, known limitations, and viva preparation, see [VIVA_GUIDE.md](VIVA_GUIDE.md).**
 
 ## What is included
 
